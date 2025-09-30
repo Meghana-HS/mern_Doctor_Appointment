@@ -1,0 +1,80 @@
+
+
+/* Apply Times New Roman to all text inside the container */
+body {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Center the subtitle and title */
+.text-section .subtitle,
+.text-section .title {
+  text-align: center; /* centers the text horizontally */
+  margin: 0 auto;     /* optional, ensures block-level centering */
+}
+
+/* Optional: add spacing */
+.text-section .subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.text-section .title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+.biography {
+  display: flex;
+  gap: 2rem;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.7;
+  color: #333;
+  padding: 2rem;
+}
+
+.banner img {
+  margin-top: 100px;
+  width: 550px;   /* desired width */
+  height: 350px;  /* desired height */
+  object-fit: cover; /* maintains aspect ratio and fills the box */
+  border-radius: 8px; /* optional, makes corners rounded */
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* .biography .banner img {
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+} */
+
+.text-section {
+  max-width: 700px;
+}
+
+.text-section .subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0077b6;
+  margin-bottom: 5px;
+}
+
+.text-section .title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.text-section p {
+  font-size: 16px;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+

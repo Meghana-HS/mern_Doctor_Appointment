@@ -1,0 +1,111 @@
+/* Apply Times New Roman globally for the About page */
+.about-container,
+.about-container h1,
+.about-container .subtitle,
+.about-container .title,
+.about-container p {
+  font-family: 'Times New Roman', Times, serif;
+  word-spacing: normal;
+  letter-spacing: normal;
+  color: #333;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+body, .about-container,
+.about-container h1,
+.about-container .subtitle,
+.about-container .title,
+.about-container p {
+  font-family: 'Merriweather', Times, serif;
+}
+
+/* Main container */
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Banner sections (text or image) */
+.about-container .banner {
+  flex: 1 1 45%; /* two columns on desktop */
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+.about-container .banner h1,
+.about-container .banner .title {
+  font-size: 28px;       /* consistent with both components */
+  font-weight: 600;
+  text-align: center;     /* center the heading */
+  margin-top: 0;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+/* Subtitles */
+.about-container .subtitle {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #0077b6;
+}
+
+/* Paragraphs */
+.about-container p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+/* Images */
+.about-container img {
+  width: 550px;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  margin: 60px auto 0 auto; /* center horizontally */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Optional vector images */
+.about-container span img {
+  display: block;
+  margin: 1rem auto 0 auto;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .about-container .banner {
+    flex: 1 1 100%;
+  }
+
+  .about-container h1,
+  .about-container .title {
+    font-size: 24px;
+  }
+
+  .about-container p {
+    font-size: 15px;
+  }
+
+  .about-container img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+}

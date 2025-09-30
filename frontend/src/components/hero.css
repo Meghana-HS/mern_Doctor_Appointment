@@ -1,0 +1,88 @@
+/* Apply Times New Roman globally for Hero component */
+.hero.container,
+.hero .banner h1,
+.hero .banner p {
+  font-family: 'Times New Roman', Times, serif;
+  word-spacing: normal;
+  letter-spacing: normal;
+  color: #333;
+}
+
+/* Container */
+.hero.container {
+  display: flex;
+  flex-wrap: wrap; /* allows responsive stacking */
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* Banner sections */
+.hero .banner {
+  flex: 1 1 45%; /* two columns on large screens */
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+.hero .banner h1 {
+  font-size: 28px;         /* same as Biography title */
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;      /* center the heading */
+  line-height: 1.6;
+}
+
+/* Paragraphs */
+.hero .banner p {
+  font-size: 16px;         /* same as Biography paragraph */
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+/* Image section */
+.hero .banner img.animated-image {
+  width: 550px;   /* same as Biography */
+  height: 350px;  /* maintain aspect ratio */
+  object-fit: cover;
+  display: block;
+  margin: 60px auto 0 auto; /* centered with top margin */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Optional vector image */
+.hero .banner span img {
+  display: block;
+  margin: 1rem auto 0 auto;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  .hero.container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .hero .banner {
+    flex: 1 1 100%;
+  }
+
+  .hero .banner h1 {
+    font-size: 24px; /* smaller on mobile */
+  }
+
+  .hero .banner p {
+    font-size: 15px;
+  }
+
+  .hero .banner img.animated-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+}
