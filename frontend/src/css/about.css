@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+
 /* Apply Times New Roman globally for the About page */
 .about-container,
 .about-container h1,
@@ -10,7 +14,7 @@
   color: #333;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
 
 body, .about-container,
 .about-container h1,

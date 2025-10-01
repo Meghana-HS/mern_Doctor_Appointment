@@ -1,14 +1,13 @@
 import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js";
 import { User } from "../models/userSchema.js";
 import ErrorHandler from "../middlewares/error.js";
-import { generateToken } from "../utils/jwtToken.js";
+import { generateToken } from "../utils/jwtToken.js";   // ✅ Correct import
 import cloudinary from "cloudinary";
 
 // ===== Patient Registration =====
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
   let { firstName, lastName, email, phone, nic, dob, gender, password } = req.body;
 
-  // Trim input to remove extra spaces
   firstName = firstName?.trim();
   lastName = lastName?.trim();
   email = email?.trim();
@@ -35,7 +34,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     role: "Patient",
   });
 
-  generateToken(user, "User Registered!", 200, res);
+  generateToken(user, "User Registered!", 200, res);   // ✅ Fixed
 });
 
 // ===== Login =====
@@ -55,7 +54,7 @@ export const login = catchAsyncErrors(async (req, res, next) => {
   const isPasswordMatch = await user.comparePassword(password);
   if (!isPasswordMatch) return next(new ErrorHandler("Invalid Email Or Password!", 400));
 
-  generateToken(user, "Login Successfully!", 201, res);
+  generateToken(user, "Login Successfully!", 201, res);   // ✅ Fixed
 });
 
 // ===== Add New Admin =====
@@ -156,6 +155,27 @@ export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
   res.status(200).json({ success: true, doctors });
 });
 
+// ===== Delete Doctor =====
+export const deleteDoctor = catchAsyncErrors(async (req, res, next) => {
+  const { id } = req.params;
+
+  const doctor = await User.findOne({ _id: id, role: "Doctor" });
+  if (!doctor) {
+    return next(new ErrorHandler("Doctor not found!", 404));
+  }
+
+  if (doctor.docAvatar && doctor.docAvatar.public_id) {
+    await cloudinary.uploader.destroy(doctor.docAvatar.public_id);
+  }
+
+  await doctor.deleteOne();
+
+  res.status(200).json({
+    success: true,
+    message: "Doctor deleted successfully",
+  });
+});
+
 // ===== Get User Details =====
 export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
   const user = req.user;
@@ -168,7 +188,7 @@ export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
     .status(201)
     .cookie("adminToken", "", {
       httpOnly: true,
-      maxAge: 0, // expires immediately
+      maxAge: 0,
     })
     .json({ success: true, message: "Admin Logged Out Successfully." });
 });
@@ -179,7 +199,7 @@ export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
     .status(201)
     .cookie("patientToken", "", {
       httpOnly: true,
-      maxAge: 0, // expires immediately
+      maxAge: 0,
     })
     .json({ success: true, message: "Patient Logged Out Successfully." });
 });

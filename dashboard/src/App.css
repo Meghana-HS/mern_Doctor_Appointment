@@ -574,3 +574,37 @@ input[type="time"]:before {
   color: #444;
   margin-right: 0.5em;
 }
+
+.delete-btn {
+  margin-top: 10px;
+  padding: 8px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease-in-out;
+}
+
+
+.delete-btn svg {
+  pointer-events: none; /* Prevent accidental blocking of button click */
+}
+
+/* .delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+} */
+
+.dashboard .firstBox {
+  min-height: 300px;   /* adjust as you like */
+}
